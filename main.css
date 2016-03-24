@@ -1,5 +1,6 @@
 body{
   font-size: 18px;
+  font-family: roboto, wingdings, ariel, serif;
 }
 #videobg {
     position: fixed;
@@ -12,7 +13,6 @@ body{
     z-index: -100;
     -webkit-transform: translateX(-50%) translateY(-50%);
     transform: translateX(-50%) translateY(-50%);
-    background: url(polina.jpg) no-repeat;
     background-size: cover;
     filter:blur(5px);
     -o-filter:blur(5px);
@@ -21,10 +21,38 @@ body{
     -webkit-filter:blur(5px);
 }
 
+#glass{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  width: auto;
+  height: auto;
+  z-index: -50;
+  background : url('blu_stripes.png');
+  opacity: 0.7;
+  filter:blur(5px);
+  -o-filter:blur(5px);
+  -ms-filter:blur(5px);
+  -moz-filter:blur(5px);
+  -webkit-filter:blur(5px);
+}
+
 .really-fucking-big-text{
-  font-size: 6em;
+  font-size: 4em;
 }
 
 .center-it-bby{
   text-align: center;
+}
+
+p{
+  font-size: 1.5em;
+}
+
+#stack ul {
+  font-size: 3em;
 }

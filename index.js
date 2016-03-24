@@ -18,7 +18,7 @@ server.route({
 
 server.route({
   method : 'POST',
-  path : '/pad',
+  path : '/api/padding/right/reverse',
   handler : (request, reply) => {
     if(typeof req.payload.str !== 'string' 
     || typeof req.payload.length !== number
