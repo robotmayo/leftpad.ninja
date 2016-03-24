@@ -1,0 +1,27 @@
+{
+  "name": "leftpaddotninja",
+  "version": "1.0.0",
+  "description": "Left pad as a service",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "left",
+    "pad",
+    "microservice",
+    "big",
+    "data",
+    "web",
+    "scale",
+    "mother",
+    "fucking",
+    "ninja"
+  ],
+  "author": "robotmayo",
+  "license": "MIT",
+  "dependencies": {
+    "hapi": "^13.2.1",
+    "left-pad": "^1.0.1"
+  }
+}
