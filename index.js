@@ -1,8 +1,14 @@
 'use strict';
 const Hapi = require('hapi');
 const server = new Hapi.Server();
-const padString = require('pad-string');
-server.connection({port : 8000});
+const Inert = require('inert');
+const leftPad = require('left-pad');
+server.connection(
+  {
+    port : 8000
+  }
+);
+server.register(Inert, function () {});
 server.start(err => {
   if(err) {
     throw err;
@@ -13,18 +19,39 @@ server.start(err => {
 server.route({
   method : 'GET',
   path : '/',
-  handler : { file : 'index.html'}
+  handler : { file : __dirname + '/index.html'}
+});
+server.route({
+  method : 'GET',
+  path : '/main.css',
+  handler : { file : __dirname + '/main.css'}
 });
 
 server.route({
   method : 'POST',
   path : '/api/padding/right/reverse',
   handler : (request, reply) => {
-    if(typeof req.payload.str !== 'string' 
-    || typeof req.payload.length !== number
-    || typeof req.payload.char !== 'string'){ 
-      return reply(400);
+    try{
+      console.log(request.payload.str.length);
+      const padded = actualLeftPad(request.payload.str, request.payload.length, request.payload.char);
+      reply(padded);
+    }catch(err){
+      reply('Back up your dependencies and think hard about if its the right choice for your project :^)');
     }
-    reply(leftPad(req.payload.str, req.payload.length, req.payload.char));
   }
 });
+function actualLeftPad (str, len, ch) {
+  str = String(str);
+
+  var i = -1;
+
+  if (!ch && ch !== 0) ch = ' ';
+
+  len = len - str.length;
+
+  while (++i < len) {
+    str = ch + str;
+  }
+
+  return str;
+}
